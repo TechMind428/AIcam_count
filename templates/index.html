@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Counter</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Chart.js does not require CSS file -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>People Counter</h1>
+            <div class="counting-display">
+                <div class="count-box">
+                    <span id="total-count">0</span>
+                    <span class="count-label">Total Count</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="content">
+            <div class="visualization-panel">
+                <div class="canvas-container">
+                    <canvas id="detection-canvas"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="counting-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="control-panel">
+                <section class="control-section">
+                    <h2>Settings</h2>
+                    
+                    <div class="control-group">
+                        <label for="update-frequency">Update Frequency (ms)</label>
+                        <input type="range" id="update-frequency" min="100" max="1000" step="50" value="{{ update_frequency }}">
+                        <span id="update-frequency-value">{{ update_frequency }}</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="confidence-threshold">Confidence Threshold</label>
+                        <input type="range" id="confidence-threshold" min="0.1" max="0.9" step="0.05" value="{{ confidence_threshold }}">
+                        <span id="confidence-threshold-value">{{ confidence_threshold }}</span>
+                    </div>
+                    
+                    <button id="reset-count" class="btn btn-danger">
+                        <i class="fas fa-redo"></i> Reset Count
+                    </button>
+                </section>
+                
+                <section class="control-section">
+                    <h2>Status</h2>
+                    <div class="status-box">
+                        <div class="status-item">
+                            <span class="status-label">Connection:</span>
+                            <span id="connection-status" class="status-value">Connecting...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Last Update:</span>
+                            <span id="last-update" class="status-value">-</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Active Tracks:</span>
+                            <span id="active-tracks" class="status-value">0</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="control-section">
+                    <h2>Legend</h2>
+                    <div class="legend-box">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #2ecc71;"></span>
+                            <span class="legend-label">Person Detection</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #3498db;"></span>
+                            <span class="legend-label">Tracking Path</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #e74c3c;"></span>
+                            <span class="legend-label">Counting Line</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer>
+            <p>People Counter Application | Raspberry Pi 5 with AI Camera</p>
+        </footer>
+    </div>
+
+    <!-- Load JavaScript libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    
+    <!-- Load our JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Responsive viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+</body>
+</html>

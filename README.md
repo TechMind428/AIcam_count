@@ -1,0 +1,121 @@
+# People Counter Web Application
+
+A local web application for Raspberry Pi 5 with AI Camera (IMX500) that counts people crossing a line and visualizes the results.
+
+## Features
+
+- Real-time visualization of people detection with bounding boxes
+- Person tracking across frames using advanced heuristics
+- Line-crossing detection and counting
+- Time-series graph of people counts
+- Adjustable settings (thresholds, update frequency, etc.)
+- Robust tracking that can handle detection gaps
+
+## Prerequisites
+
+- Raspberry Pi 5
+- Raspberry Pi AI Camera (IMX500)
+- Object detection model for people detection deployed to the IMX500
+- Python 3.9+
+
+## Installation
+
+1. Clone this repository to your Raspberry Pi:
+
+```bash
+git clone https://github.com/yourusername/people-counter.git
+cd people-counter
+```
+
+2. Run the installation script:
+
+```bash
+chmod +x install_dependencies.sh
+./install_dependencies.sh
+```
+
+## Directory Structure
+
+```
+people_counter/
+├── app.py                 # Main application entry point
+├── modules/
+│   ├── file_monitor.py    # JSON file monitoring
+│   ├── person_tracker.py  # Person tracking algorithm
+│   └── line_counter.py    # Line crossing detection
+├── static/
+│   ├── css/
+│   │   └── style.css      # Application styling
+│   └── js/
+│       └── main.js        # Frontend functionality
+└── templates/
+    └── index.html         # Main application page
+```
+
+## Usage
+
+1. Make sure you have a separate process running that deploys the object detection model to the IMX500 camera and outputs JSON files to `/home/pi/results`.
+
+2. Start the web application:
+
+```bash
+python app.py
+```
+
+3. Open a web browser and navigate to:
+   - `http://localhost:5000` (if accessing from the Raspberry Pi)
+   - `http://raspberry-pi-ip:5000` (if accessing from another device on the same network)
+
+## Configuration
+
+You can adjust these settings in the web interface:
+
+- **Update Frequency**: How often the UI refreshes (in milliseconds)
+- **Confidence Threshold**: Minimum confidence score for a detection to be considered valid
+- **Reset Count**: Button to reset the people counter
+
+## Technical Implementation Details
+
+### Person Tracking
+
+The application tracks people across frames using:
+
+- Distance between centers of bounding boxes
+- IoU (Intersection over Union) of bounding boxes
+- Size similarity of bounding boxes
+- Movement trajectory and speed estimation
+
+This approach helps maintain person identity even with occasional detection gaps.
+
+### Line Crossing Detection
+
+A vertical line is positioned at x=320 (the center of the 640x480 frame). The application:
+
+- Tracks when a person's center crosses from left to right
+- Ensures one-way counting (ignores U-turns)
+- Counts only when confidence is above threshold
+
+### JSON File Monitoring
+
+The application watches for new JSON files in the specified directory and processes them as they appear. The expected JSON format is:
+
+```json
+{
+    "time": "20250303145302409",
+    "detections": [
+        {
+            "label": "person",
+            "confidence": 0.77734375,
+            "left": 625.0,
+            "top": 0.0,
+            "right": 44.0,
+            "bottom": 470.0
+        },
+        ...
+    ]
+}
+```
+
+## License
+
+[MIT License](LICENSE)
