@@ -15,7 +15,7 @@ A local web application for Raspberry Pi 5 with AI Camera (IMX500) that counts p
 
 ## Prerequisites
 
-- Raspberry Pi 5
+- Raspberry Pi 4/5 (We didn't test with other model)
 - Raspberry Pi AI Camera (IMX500)
 - Object detection model for people detection deployed to the IMX500
 - Python 3.9+
@@ -25,7 +25,7 @@ A local web application for Raspberry Pi 5 with AI Camera (IMX500) that counts p
 1. Clone this repository to your Raspberry Pi:
 
 ```bash
-git clone https://github.com/yourusername/people-counter.git
+git clone https://github.com/TechMind428/AIcam_count.git
 cd people-counter
 ```
 

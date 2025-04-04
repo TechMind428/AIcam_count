@@ -15,7 +15,7 @@ AIカメラ（IMX500）を搭載したRaspberry Pi 5用のローカルウェブ�
 
 ## 前提条件
 
-- Raspberry Pi 5
+- Raspberry Pi 4/5 (他のモデルではテストしていません)
 - Raspberry Pi AIカメラ（IMX500）
 - IMX500にデプロイされた人物検出用のオブジェクト検出モデル
 - Python 3.9以上
@@ -25,7 +25,7 @@ AIカメラ（IMX500）を搭載したRaspberry Pi 5用のローカルウェブ�
 1. このリポジトリをRaspberry Piにクローンします：
 
 ```bash
-git clone https://github.com/yourusername/people-counter.git
+git clone https://github.com/TechMind428/AIcam_count.git
 cd people-counter
 ```
 
