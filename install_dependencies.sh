@@ -5,6 +5,8 @@
 set -e
 
 echo "Installing dependencies for People Counter application..."
+echo "***If you see error when install dependencies, try using venv and try again.***"
+
 
 # Update package lists
 sudo apt-get update
