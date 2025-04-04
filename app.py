@@ -34,7 +34,7 @@ CORS(app)
 app.config['SECRET_KEY'] = 'people-counter-secret-key'
 
 # Configuration
-RESULTS_DIR = Path.home() + '/temp'
+RESULTS_DIR = str(Path.home()) + '/temp'
 LINE_X = 320  # Vertical line position
 UPDATE_FREQUENCY = 300  # Default update frequency in milliseconds
 MAX_DATA_POINTS = 50  # Number of data points to keep for the time-series graph
