@@ -36,9 +36,9 @@ app.config['SECRET_KEY'] = 'people-counter-secret-key'
 # Configuration
 RESULTS_DIR = str(Path.home()) + '/temp'
 LINE_X = 320  # Vertical line position
-UPDATE_FREQUENCY = 300  # Default update frequency in milliseconds
+UPDATE_FREQUENCY = 200  # Default update frequency in milliseconds
 MAX_DATA_POINTS = 50  # Number of data points to keep for the time-series graph
-CONFIDENCE_THRESHOLD = 0.5  # Default confidence threshold
+CONFIDENCE_THRESHOLD = 0.4  # Default confidence threshold
 LOCK_TIMEOUT = 2.0  # Lock timeout in seconds
 
 # Global state
