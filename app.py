@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 """
 People Counter Web Application (Fixed version)
-With deadlock prevention and enhanced logging
 """
 
 import os
-import json
-import time
 import logging
 import traceback
 import threading
@@ -21,6 +18,9 @@ from modules.file_monitor import FileMonitor
 from modules.person_tracker import PersonTracker
 from modules.line_counter import LineCounter
 
+from pathlib import Path
+
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -34,7 +34,7 @@ CORS(app)
 app.config['SECRET_KEY'] = 'people-counter-secret-key'
 
 # Configuration
-RESULTS_DIR = '/home/nori/temp'
+RESULTS_DIR = Path.home() + '/temp'
 LINE_X = 320  # Vertical line position
 UPDATE_FREQUENCY = 300  # Default update frequency in milliseconds
 MAX_DATA_POINTS = 50  # Number of data points to keep for the time-series graph
