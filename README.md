@@ -2,6 +2,8 @@
 
 A local web application for Raspberry Pi 5 with AI Camera (IMX500) that counts people crossing a line and visualizes the results.
 
+[日本語版 README](README_ja.md)
+
 ## Features
 
 - Real-time visualization of people detection with bounding boxes
