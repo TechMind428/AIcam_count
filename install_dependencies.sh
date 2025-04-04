@@ -19,7 +19,7 @@ sudo apt-get install -y \
 mkdir -p modules static/css static/js templates
 
 # Install Python dependencies
-pip3 install flask flask-cors numpy
+pip3 install flask flask-cors numpy watchdog
 
 echo "Creating module directory structure..."
 # The module directories should have been created when installing the application
