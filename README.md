@@ -54,17 +54,19 @@ people_counter/
 
 ## Usage
 
-1. Make sure you have a separate process running that deploys the object detection model to the IMX500 camera and outputs JSON files to `/home/pi/results`.
+1. Make sure you have a separate process running that deploys the object detection model to the IMX500 camera and outputs JSON files to `/home/temp`.
 
 2. Start the web application:
 
 ```bash
+source .venv/bin/activate # if you use venv | change venv directory to your environment
+python output_meta.py
 python app.py
 ```
 
 3. Open a web browser and navigate to:
-   - `http://localhost:5000` (if accessing from the Raspberry Pi)
-   - `http://raspberry-pi-ip:5000` (if accessing from another device on the same network)
+   - `http://localhost:8080` (if accessing from the Raspberry Pi)
+   - `http://{raspberry-pi-ip}:8080` (if accessing from another device on the same network)
 
 ## Configuration
 
