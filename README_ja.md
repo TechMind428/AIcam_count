@@ -34,6 +34,11 @@ cd AIcam_count
 ```bash
 chmod +x install_dependencies.sh
 ./install_dependencies.sh
+
+# インストールを完了するためには仮想環境の利用が求められる場合があります
+例) 
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 ## ディレクトリ構造

@@ -34,6 +34,11 @@ cd AIcam_count
 ```bash
 chmod +x install_dependencies.sh
 ./install_dependencies.sh
+
+# You may need to use a virtual environment to complete installation
+e.g.)
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 ## Directory Structure

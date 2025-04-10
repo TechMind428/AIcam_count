@@ -5,7 +5,10 @@
 set -e
 
 echo "Installing dependencies for People Counter application..."
+echo "*******************************************************************************"
 echo "***If you see error when install dependencies, try using venv and try again.***"
+echo "*******************************************************************************"
+echo ""
 
 
 # Update package lists
