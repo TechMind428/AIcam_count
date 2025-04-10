@@ -19,6 +19,8 @@ AIカメラ（IMX500）を搭載したRaspberry Pi 5用のローカルウェブ�
 - Raspberry Pi AIカメラ（IMX500）
 - IMX500にデプロイされた人物検出用のオブジェクト検出モデル
 - Python 3.9以上
+- [公式ドキュメント](https://www.raspberrypi.com/documentation/accessories/ai-camera.html)に従ってIMX500 AIカメラのセットアップが完了していること
+  - これには`sudo apt install imx500-all`でのパッケージインストールとデモアプリケーションが正常に動作することの確認を含みます
 
 ## インストール
 
@@ -37,15 +39,16 @@ chmod +x install_dependencies.sh
 
 # インストールを完了するためには仮想環境の利用が求められる場合があります
 例) 
-python3 -m venv .venv
+python3 -m venv .venv --system-site-packages
 source .venv/bin/activate
 ```
 
 ## ディレクトリ構造
 
 ```
-people_counter/
+AIcam_count/
 ├── app.py                 # メインアプリケーションのエントリーポイント
+├── output_meta.py         # カメラの出力するメタデータをファイル保存するアプリケーション
 ├── modules/
 │   ├── file_monitor.py    # JSONファイルモニタリング
 │   ├── person_tracker.py  # 人物追跡アルゴリズム
@@ -67,7 +70,7 @@ people_counter/
 
 ```bash
 source .venv/bin/activate # venvを使用する場合 | venvディレクトリを環境に合わせて変更
-python output_meta.py
+python output_meta.py # 別のターミナルを開く必要があるかもしれません
 python app.py
 ```
 
