@@ -26,7 +26,7 @@ AIカメラ（IMX500）を搭載したRaspberry Pi 5用のローカルウェブ�
 
 ```bash
 git clone https://github.com/TechMind428/AIcam_count.git
-cd people-counter
+cd AIcam_count
 ```
 
 2. インストールスクリプトを実行します：

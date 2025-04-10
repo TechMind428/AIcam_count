@@ -26,7 +26,7 @@ A local web application for Raspberry Pi 5 with AI Camera (IMX500) that counts p
 
 ```bash
 git clone https://github.com/TechMind428/AIcam_count.git
-cd people-counter
+cd AIcam_count
 ```
 
 2. Run the installation script:
