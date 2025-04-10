@@ -19,6 +19,8 @@ A local web application for Raspberry Pi 5 with AI Camera (IMX500) that counts p
 - Raspberry Pi AI Camera (IMX500)
 - Object detection model for people detection deployed to the IMX500
 - Python 3.9+
+- IMX500 AI Camera setup completed per [official documentation](https://www.raspberrypi.com/documentation/accessories/ai-camera.html))
+  - This includes installing required packages with `sudo apt install imx-500-all` and verifying that demo applications work properly
 
 ## Installation
 
@@ -37,15 +39,16 @@ chmod +x install_dependencies.sh
 
 # You may need to use a virtual environment to complete installation
 e.g.)
-python3 -m venv .venv
+python3 -m venv .venv --system-site-packages
 source .venv/bin/activate
 ```
 
 ## Directory Structure
 
 ```
-people_counter/
+AIcam_count/
 ├── app.py                 # Main application entry point
+├── output_meta.py         # Application to save camera metadata to files
 ├── modules/
 │   ├── file_monitor.py    # JSON file monitoring
 │   ├── person_tracker.py  # Person tracking algorithm
@@ -67,7 +70,7 @@ people_counter/
 
 ```bash
 source .venv/bin/activate # if you use venv | change venv directory to your environment
-python output_meta.py
+python output_meta.py # You may need to open another terminal
 python app.py
 ```
 
