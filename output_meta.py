@@ -92,7 +92,12 @@ def parse_detections(metadata: dict):
     
     # JSONファイルとして保存
     home = Path.home()
-    with open(home / 'temp' / f'{formatted_time}.json', 'w', encoding='utf-8') as f:
+    temp_dir = home / 'temp'
+
+    if not temp_dir.exists():
+        temp_dir.mkdir()
+
+    with open(temp_dir / f'{formatted_time}.json', 'w', encoding='utf-8') as f:
         json.dump(detection_result, f, ensure_ascii=False, indent=4)
     
     return last_detections
